@@ -3,120 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mon Portfolio Numérique</title>
+  <title>IMAD - Portfolio</title>
   <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- Bannière de bienvenue -->
-  <div class="banner">
-    <p class="welcome-text">🍄 Bienvenue sur mon site web ! Explore mes TP, missions et créations 🎮</p>
+  <!-- Loader -->
+  <div id="loader">
+    <canvas id="starfield"></canvas>
+    <div class="loader-content">
+      <img src="images/YdBN.gif" alt="GIF qui court" class="loader-gif" />
+      <h1>IMAD - PORTFOLIO</h1>
+      <div id="progress-text" class="progress-text">Chargement : 0%</div>
+      <div class="spinner"></div>
+    </div>
   </div>
 
-  <!-- Menu horizontal -->
-  <!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mon Portfolio Numérique</title>
-  <<nav class="top-menu">
-    <ul class="menu">
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="#tpContent">TP</a></li>
-      <li><a href="#missionsContent">Missions</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+  <!-- Header -->
+  <header class="main-header">
+    <h1 class="arcade-blink">IMAD - PORTFOLIO</h1>
+    <input type="text" placeholder="Rechercher un élément..." class="search-bar" />
+  </header>
 
-  <!-- Contenu principal -->
-  <main>
-    <div class="triangle-container">
-      <!-- Bloc central -->
-      <div id="triggerBlock" class="block">
-        <img src="images/block.jpg" alt="Bloc Mario" />
-      </div>
+  <!-- Navigation -->
+<div class="nav-buttons">
+  <a href="tp.html"><button>MES TP</button></a>
+  <a href="missions.html"><button>MES MISSIONS</button></a>
+  <a href="certification.html"><button>MES CERTIFICATIONS</button></a>
+</div>
 
-      <!-- Cartes TP et Missions -->
-      <div id="triangleCards" class="triangle-cards hidden">
-        <button id="showTP" class="card card-left">
-          <img src="images/mushred.png" alt="TP" />
-          <span>TP</span>
-        </button>
-
-        <button id="showMissions" class="card card-right">
-          <img src="images/mushgreen.png" alt="Missions" />
-          <span>Missions</span>
-        </button>
-      </div>
-
-      <!-- Contenus TP et Missions -->
-      <div class="content-wrapper">
-        <div id="tpContent" class="content hidden">
-          <ul>
-            <li><a href="tp/tp1.html">TP1</a></li>
-            <li><a href="tp/tp2.html">TP2</a></li>
-            <li><a href="tp/tp3.html">TP3</a></li>
-            <li><a href="tp/tp4.html">TP4</a></li>
-            <li><a href="tp/tp5.html">TP5</a></li>
-          </ul>
-        </div>
-
-        <div id="missionsContent" class="content hidden">
-          <ul>
-            <li><a href="tp/mission1.html">Mission 1</a></li>
-            <li><a href="tp/mission2.html">Mission 2</a></li>
-            <li><a href="tp/mission3.html">Mission 3</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <!-- Footer encadré -->
-  <footer>
-    <p class="footer-box">© 2025 Tous droits réservés — Imad</p>
-  </footer>
-
-  <!-- Son Mario -->
-  <audio id="marioSound" preload="auto">
-    <source src="audio/coin.mp3" type="audio/mpeg" />
-  </audio>
+  <!-- Footer -->
+   
 
   <!-- Script -->
-  <script>
-    const triggerBlock = document.getElementById("triggerBlock");
-    const triangleCards = document.getElementById("triangleCards");
-    const tpBtn = document.getElementById("showTP");
-    const missionsBtn = document.getElementById("showMissions");
-    const tpContent = document.getElementById("tpContent");
-    const missionsContent = document.getElementById("missionsContent");
-    const sound = document.getElementById("marioSound");
-
-    let isOpen = false;
-
-    triggerBlock.addEventListener("click", () => {
-      isOpen = !isOpen;
-      triangleCards.classList.toggle("hidden", !isOpen);
-      tpContent.classList.add("hidden");
-      missionsContent.classList.add("hidden");
-      sound.currentTime = 0;
-      sound.play();
-    });
-
-    tpBtn.addEventListener("click", () => {
-      tpContent.classList.toggle("hidden");
-      missionsContent.classList.add("hidden");
-      sound.currentTime = 0;
-      sound.play();
-    });
-
-    missionsBtn.addEventListener("click", () => {
-      missionsContent.classList.toggle("hidden");
-      tpContent.classList.add("hidden");
-      sound.currentTime = 0;
-      sound.play();
-    });
-  </script>
+  <script src="style.js"></script>
 </body>
 </html>
+

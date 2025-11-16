@@ -1,166 +1,289 @@
-/* === Fond et base === */
+/* === Fond général === */
 body {
-  font-family: 'Press Start 2P', cursive;
-  background-image: url("../images/mario.gif");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
   margin: 0;
   padding: 0;
-  color: white;
-  text-align: center;
+  font-family: 'Arial', sans-serif;
+  background-color: #000;
+  color: #fff;
 }
 
-/* === Bannière de bienvenue === */
-.banner {
-  background-color: #ffcc00;
+/* === Titre principal === */
+.main-header {
+  text-align: center;
   padding: 40px 20px;
+  background-color: #111;
+}
+
+.main-header h1 {
+  font-size: 1.2em; /* taille adaptée à la police pixelisée */
+  color: #a020f0;
+  font-family: 'Press Start 2P', cursive;
   text-align: center;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  margin-bottom: 20px;
+  letter-spacing: 1px;
 }
 
-.welcome-text {
-  font-family: 'Press Start 2P', cursive;
+.arcade-blink {
+  animation: blink 1s infinite;
+}
+
+.search-bar {
+  padding: 10px 20px;
   font-size: 1em;
-  color: #e60012;
-  margin: 0;
-  line-height: 1.6;
+  border-radius: 8px;
+  border: none;
+  width: 300px;
+  max-width: 80%;
 }
 
-/* === Menu horizontal === */
-.top-menu {
-  background-color: #fff;
-  padding: 15px 0;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+/* === Navigation === */
+.nav-buttons {
+  text-align: center;
+  margin: 20px 0;
 }
 
-.menu {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 50px;
-  margin: 0;
-  padding: 0;
-}
-
-.menu li a {
-  font-family: 'Press Start 2P', cursive;
-  color: #4CAF50;
-  text-decoration: none;
-  font-size: 0.8em;
-  padding: 8px 12px;
-  border: 2px solid transparent;
-  transition: all 0.3s ease;
-}
-
-.menu li a:hover {
-  border: 2px solid #4CAF50;
-  background-color: #fce883;
-  color: #e60012;
-  transform: scale(1.1);
-}
-
-/* === Triangle interactif === */
-.triangle-container {
-  position: relative;
-  width: 100%;
-  margin-top: 60px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Bloc central */
-.block {
-  width: 80px;
-  height: 80px;
+.nav-buttons button {
+  padding: 12px 24px;
+  font-size: 1em;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
+  background-color: #ffffff;
+  color: #000;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
   transition: transform 0.3s ease;
 }
 
-.block:hover {
+.nav-buttons button:hover {
   transform: scale(1.1);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
 }
 
-.block img {
-  width: 100%;
-  height: auto;
+/* === Grille de cartes === */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px; /* au lieu de 40px */
+  padding: 30px 20px; /* au lieu de 40px 20px */
+  margin: 0 auto;
+  max-width: 1200px;
 }
 
-/* Cartes TP et Missions */
-.triangle-cards {
-  margin-top: 40px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  gap: 200px;
-  transition: opacity 0.4s ease;
-}
-
-.triangle-cards.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* Cartes stylées */
+/* === Carte individuelle === */
 .card {
-  background-color: #fce883;
-  border: 3px solid #d89c00;
+  background-color: #1e1e1e;
+  border: 1px solid #5a2d91;
   border-radius: 12px;
-  box-shadow: 0 4px 0 #b06f00;
-  font-weight: bold;
-  color: #4CAF50;
-  width: 160px;
-  height: 80px;
-  padding: 10px;
-  font-size: 0.9em;
+  padding: 16px; /* au lieu de 20px */
+  text-align: center;
+  box-shadow:
+    0 0 4px rgba(160, 32, 240, 0.3),
+    0 0 8px rgba(160, 32, 240, 0.15);
+  transition: box-shadow 0.3s ease;
+  height: 360px; /* au lieu de 420px */
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card:hover {
-  background-color: yellow;
-  color: #ff0000;
-  transform: translateY(-5px);
+  box-shadow:
+    0 0 6px rgba(255, 255, 255, 0.4),
+    0 0 12px rgba(255, 255, 255, 0.2);
 }
 
-.card img {
-  width: 30px;
-  height: 30px;
+.card-image img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  object-fit: cover;
+  box-shadow: 0 0 8px #ffffff;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
 }
 
-/* === Contenus TP et Missions === */
-.content-wrapper {
-  margin-top: 30px;
+.card-image img:hover {
+  transform: scale(1.5);
+}
+
+.card h3 {
+  font-size: 1em; /* au lieu de 1.1em */
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.card p {
+  font-size: 0.85em; /* au lieu de 0.9em */
+  color: #ccc;
+  margin-bottom: 12px;
+}
+
+.card-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.card-button:hover {
+  background-color: #fff;
+  animation: pulse 0.6s ease-in-out;
+  background-color: #fff;
+  color: #000;
+}
+
+/* === Footer === */
+footer {
+  background: transparent;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.footer-box {
+  display: inline-block;
+  padding: 15px 25px;
+  border: 3px solid #ffcc00;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #e60012;
+  font-size: 0.9em;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* === Loader === */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
   display: flex;
   justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-}
-
-.content {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  padding: 15px;
-  width: 300px;
-  text-align: left;
-  color: #333;
+  align-items: center;
+  z-index: 9999;
   opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  transition: opacity 0.5s ease;
 }
 
-.content.hidden {
-  opacity: 0;
-  transform: translateY(20px);
-  pointer-events: none;
+#starfield {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-color: #000;
 }
 
-.content ul {
-  list-style: none;
+.loader-content {
+  text-align: center;
+  color: #a020f0;
+  font-family: 'Press Start 2P', cursive;
+  position: relative;
+  z-index: 1;
+}
+
+.loader-gif {
+  width: 120px;
+  height: auto;
+  margin-bottom: 20px;
+  animation: bounce 1s infinite ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.spinner {
+  margin: 30px auto 0;
+  width: 40px;
+  height: 40px;
+  border: 4px solid #a020f0;
+  border-top: 4px solid #ffcc00;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* === Pourcentage dynamique === */
+.progress-text {
+  text-align: center;
+  font-size: 1em;
+  color: #ffcc00;
+  font-family: 'Press Start 2P', cursive;
+  margin-bottom: 10px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 0 6px rgba(255, 255, 255, 0.3); }
+  50% { transform: scale(1.05); box-shadow: 0 0 12px rgba(255, 255, 255, 0.5); }
+  100% { transform: scale(1); box-shadow: 0 0 6px rgba(255, 255, 255, 0.3); }
+}
+
+.back-arrow {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  font-size: 2.5em;
+  color: #a020f0;
+  font-family: 'Press Start 2P', cursive;
+  text-decoration: none;
+  z-index: 1000;
+  animation: blink 1s infinite;
+  transition: transform 0.2s ease;
+  text-shadow: 0 0 6px #a020f0, 0 0 12px #a020f0;
+}
+
+.back-arrow:hover {
+  transform: scale(1.2) rotate(-5deg);
+  color: #fff;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff;
+}
+
+.certif-frame {
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  background-color: #000;
+  border: 4px solid #a020f0;
+  z-index: 999;
+  padding: 10px;
+  box-shadow: 0 0 20px #a020f0;
+}
+
+.certif-frame iframe {
+  width: 100%;
+  height: 90%;
+  border: none;
+}
+
+.close-button {
+  margin-top: 10px;
+  font-family: 'Press Start 2P', cursive;
+  background-color: #a020f0;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 1em;
 }
