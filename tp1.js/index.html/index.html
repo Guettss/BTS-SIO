@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="calc.js"></script>
+    <title>TP Calculatrice en JS</title>
+</head>
+<body>
+    <center>
+        <h1>TP Calculatrice en JS</h1>
+        <div class="calculator">
+            <div class="inputs">
+                <input class="t" placeholder="Premier chiffre" type="number" name="t1" id="t1">
+                <input class="t" placeholder="deuxième chiffre" type="number" name="t2" id="t2">
+            </div>
+
+            <div class="buttons">
+                <button onclick="addition()">+</button>
+                <button onclick="soustraction()">-</button>
+                <button onclick="division()">÷</button>
+                <button onclick="multiplication()">×</button>
+                <button onclick="reset()">Reset</button>
+            </div>
+
+            <div class="buttons">
+                <button onclick="parite()">Parité</button>
+                <button onclick="permute()">Permute</button>
+            </div>
+
+
+            <div class="outputs">
+                <input class="t34" placeholder="Résultat" type="text" name="t3" id="t3" readonly>
+                <input class="t34" placeholder="Pair ou Impair?" type="text" name="t4" id="t4" readonly>
+            </div>
+        </div>
+
+    <p>
+    Grâce à ce TP, j’ai appris à créer une calculatrice fonctionnelle en JavaScript en manipulant les éléments HTML avec le DOM. J’ai compris comment récupérer les valeurs des champs, effectuer des opérations comme l’addition, la soustraction, la multiplication et la division, et afficher le résultat dynamiquement. J’ai aussi appris à gérer les erreurs, notamment la division par zéro, et à ajouter des fonctionnalités comme le bouton Reset et la vérification de la parité. Ce TP m’a permis de renforcer ma logique de programmation, d’améliorer mon organisation du code, et de mieux comprendre l’interaction entre HTML, CSS et JavaScript.
+    </p>
+
+
+    </center>
+    <footer>
+        <h2><a href="https://guettss.github.io/BTS-SIO/">Accueil</a></h2>
+        <p>&copy; 2025 - GUETTOUCHE IMAD</p>
+        </footer>
+</body>
+</html>
+
