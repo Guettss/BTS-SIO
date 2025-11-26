@@ -8,27 +8,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
     body { background-color: black; margin:0; padding:0; }
-
-    /* Canvas pour la neige */
-    #weather {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      pointer-events: none; /* ne bloque pas les clics */
-      z-index: 0; /* derrière le contenu */
-    }
-
-    /* Contenu du sommaire au-dessus de la neige */
-    .main-header, .search-bar, .nav-buttons {
-      position: relative;
-      z-index: 1;
-    }
   </style>
 </head>
 <body>
-
-  <!-- Canvas pour l'effet neige -->
-  <canvas id="weather"></canvas>
 
   <!-- Titre -->
   <header class="main-header">
@@ -45,60 +27,6 @@
     <a href="/certification/certification.html"><button>MES CERTIFICATIONS</button></a>
   </div>
 
-  <!-- Script effet neige -->
-  <script>
-    const canvas = document.getElementById('weather');
-    const ctx = canvas.getContext('2d');
-
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    let flakes = [];
-
-    function createFlakes() {
-      for (let i = 0; i < 100; i++) {
-        flakes.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          radius: Math.random() * 3 + 2,
-          speed: Math.random() * 3 + 1
-        });
-      }
-    }
-
-    function drawFlakes() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "white"; // ❄️ couleur des flocons
-      ctx.beginPath();
-      for (let f of flakes) {
-        ctx.moveTo(f.x, f.y);
-        ctx.arc(f.x, f.y, f.radius, 0, Math.PI * 2);
-      }
-      ctx.fill();
-      updateFlakes();
-    }
-
-    function updateFlakes() {
-      for (let f of flakes) {
-        f.y += f.speed;
-        if (f.y > canvas.height) {
-          f.y = 0;
-          f.x = Math.random() * canvas.width;
-        }
-      }
-    }
-
-    createFlakes();
-    setInterval(drawFlakes, 30);
-
-    // Ajuste la taille du canvas si la fenêtre change
-    window.addEventListener('resize', () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      flakes = [];
-      createFlakes();
-    });
-  </script>
-
+  
 </body>
 </html>
